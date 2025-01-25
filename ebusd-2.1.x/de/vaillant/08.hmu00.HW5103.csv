@@ -1,0 +1,33 @@
+# type (r[1-9];w;u),circuit,name,[comment],[QQ],ZZ,PBSB,[ID],field1,part (m/s),datatypes/templates,divider/values,unit,comment,field2,part (m/s),datatypes/templates,divider/values,unit,comment,field3,part (m/s),datatypes/templates,divider/values,unit,comment,field4,part (m/s),datatypes/templates,divider/values,unit,comment
+
+#r,hmu,Standby,,,,B503,020003,,,HEX:6,,,,,,,,,,,,,,,,,,,,,
+
+*r,,,,,,B51A,,,,IGN:1,,,,,,,,,,,,,,,,,,,,,
+*r,,,,,,B51A,04,,,,,,,,,,,,,,,,,,,,,,,,
+r,,HeatpumpLoadSensor,,,08,B507,0931,,,percent1,,,Wärmepumpen-Lastsensor (Prozent),,,,,,,,,,,,,,,,,,
+
+# Values an VWZ AI Plus Test Menu,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+*r,,,,,,B514,05,,,IGN:2,,,,,,,,,,,,,,,,,,,,,
+r,,Fan1Sensor,,,,,1103FFFF,,,percent3,,,Gebläsedrehzahl 1 (Prozent der max.),,,,,,,,,,,,,,,,,,
+r,,CondensateTrayHeaterStatus,,,,,1303FFFF,,,onoff,,,Kondensatwannenheizung (ein/aus)),,,,,,,,,,,,,,,,,,
+r,,WarmWaterTemp,,,,,2C03FFFF,,,temps2,10,°C,SWW Temperatur des Tanks (°C),,,,,,,,,,,,,,,,,,
+
+*r,,,,,,B51A,05,,,IGN:3,,,,,,,,,,,,,,,,,,,,,
+*w,,,,,,B51A,06,,,,,,,,,,,,,,,,,,,,,,,,
+r;w,,TargetTempWarmWater,(with intergrated System thermostat),,,,C63207,,,D2C,,°C,Warmwasser-Zieltemperatur (°C),,,,,,,,,,,,,,,,,,
+r,,YieldHeating,,,,,FF3210,,,energy,,kWh,Gesamtertrag Heizkreislauf,,,,,,,,,,,,,,,,,,
+r,,YieldWarmWater,,,,,FF3216,,,energy,,kWh,Gesamtertrag Warmwasser,,,,,,,,,,,,,,,,,,
+r,,FlowTemp,,,,,FF3220,,,D2C,,°C,,,,,,,,,,,,,,,,,,,
+r,,EnergyIntegral,,,,,FF3221,,,integral,,°min,aktuelles Energieintegral in °min,,,,,,,,,,,,,,,,,,
+r,,CurrentConsumedPower,,,,,FF3224,,,D1B,10,kW,aktueller Stromverbrauch der Wärmepumpe in kW,,,,,,,,,,,,,,,,,,
+r,,CompressorSensor,,,,,FF3225,,,percent3,10,,(Prozenz des Maximums),,,,,,,,,,,,,,,,,,
+r,,WaterThroughputSensor,,,,,FF323C,,,UIN,,l/h,Aktuelle Heizwasser Durchflussrate der Wärmepumpe in Liter pro Stunde,,,,,,,,,,,,,,,,,,
+r,,TotalRuntime,,,,,FF3240,,,UIN,,hours,,,,,,,,,,,,,,,,,,,
+r,,TotalEnergyUsage,,,,,FF324D,,,energy,,kWh,,,,,,,,,,,,,,,,,,,
+r,,CompressorRuntime,,,,,FF3400,,,UIN,,hours,,,,,,,,,,,,,,,,,,,
+r,,CompressorStarts,,,,,FF3401,,,UIN,,,,,,,,,,,,,,,,,,,,,
+r,,Fan1Runtime,,,,,FF3451,,,UIN,,hours,,,,,,,,,,,,,,,,,,,
+r,,Fan1Starts,,,,,FF3452,,,UIN,,,,,,,,,,,,,,,,,,,,,
+
+!include,hcmode.inc,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+!include,errors.inc,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
