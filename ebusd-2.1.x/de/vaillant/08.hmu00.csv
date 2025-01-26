@@ -10,17 +10,20 @@ r,,HeatpumpLoadSensor,,,08,B507,0931,,,percent1,,,Wärmepumpen-Lastsensor (Proze
 *r,,,,,,B514,05,,,IGN:2,,,,,,,,,,,,,,,,,,,,,
 r,,Fan1Sensor,,,,,1103FFFF,,,percent3,,,Gebläsedrehzahl 1 (Prozent der max.),,,,,,,,,,,,,,,,,,
 r,,CondensateTrayHeaterStatus,,,,,1303FFFF,,,onoff,,,Kondensatwannenheizung (ein/aus)),,,,,,,,,,,,,,,,,,
-r,,WarmWaterTemp,,,,,2C03FFFF,,,temps2,10,°C,SWW Temperatur des Tanks (°C),,,,,,,,,,,,,,,,,,
+
+*r,,,,,,B516,05,,,IGN:1,,,,,,,,,,,,,,,,,,,,,
+r,,YieldTotal,,,,b516,1801,,,energy,,kWh,Gesamtertrag Heizung gesamt,,,,,,,,,,,,,,,,,,
+r,,ConsumptionTotal,,,,b516,1802,,,energy,,kWh,Stromverbrauch Heizung gesamt,,,,,,,,,,,,,,,,,,
 
 *r,,,,,,B51A,05,,,IGN:3,,,,,,,,,,,,,,,,,,,,,
 *w,,,,,,B51A,06,,,,,,,,,,,,,,,,,,,,,,,,
-r;w,,TargetTempWarmWater,(with intergrated System thermostat),,,,C63207,,,D2C,,°C,Warmwasser-Zieltemperatur (°C),,,,,,,,,,,,,,,,,,
-r,,YieldHeating,,,,,FF3210,,,energy,,kWh,Gesamtertrag Heizkreislauf,,,,,,,,,,,,,,,,,,
-r,,YieldWarmWater,,,,,FF3216,,,energy,,kWh,Gesamtertrag Warmwasser,,,,,,,,,,,,,,,,,,
+r,,YieldHc,,,,,FF3210,,,energy,,kWh,Gesamtertrag Heizkreislauf,,,,,,,,,,,,,,,,,,
+r,,YieldHwc,,,,,FF3216,,,energy,,kWh,Gesamtertrag Warmwasser,,,,,,,,,,,,,,,,,,
 r,,FlowTemp,,,,,FF3220,,,D2C,,°C,,,,,,,,,,,,,,,,,,,
 r,,EnergyIntegral,,,,,FF3221,,,integral,,°min,aktuelles Energieintegral in °min,,,,,,,,,,,,,,,,,,
 r,,CurrentConsumedPower,,,,,FF3224,,,D1B,10,kW,aktueller Stromverbrauch der Wärmepumpe in kW,,,,,,,,,,,,,,,,,,
 r,,CompressorSensor,,,,,FF3225,,,percent3,10,,(Prozenz des Maximums),,,,,,,,,,,,,,,,,,
+r,,AirIntakeTemp,,,,,FF3226,,,tempv,,,Lufteinlasstemperatur,,,,,,,,,,,,,,,,,,
 r,,WaterThroughputSensor,,,,,FF323C,,,UIN,,l/h,Aktuelle Heizwasser Durchflussrate der Wärmepumpe in Liter pro Stunde,,,,,,,,,,,,,,,,,,
 r,,TotalRuntime,,,,,FF3240,,,UIN,,hours,,,,,,,,,,,,,,,,,,,
 r,,TotalEnergyUsage,,,,,FF324D,,,energy,,kWh,,,,,,,,,,,,,,,,,,,
@@ -28,6 +31,11 @@ r,,CompressorRuntime,,,,,FF3400,,,UIN,,hours,,,,,,,,,,,,,,,,,,,
 r,,CompressorStarts,,,,,FF3401,,,UIN,,,,,,,,,,,,,,,,,,,,,
 r,,Fan1Runtime,,,,,FF3451,,,UIN,,hours,,,,,,,,,,,,,,,,,,,
 r,,Fan1Starts,,,,,FF3452,,,UIN,,,,,,,,,,,,,,,,,,,,,
+
+
+#r,,,AirIntakeTemp,air intake temperature,,,b51a,05ff3226,value,,IGN:3,,,,value,,D2C,,°C,temperature
+#r,,,YieldTotal,,,,b516,1801,value,,IGN:1,,,,value,,UIN,,kWh,
+#r,,,ConsumptionTotal,,,,b516,1802,value,,IGN:1,,,,value,,UIN,,kWh,
 
 !include,hcmode.inc,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 !include,errors.inc,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
